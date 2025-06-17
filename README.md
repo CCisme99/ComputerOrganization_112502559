@@ -1,6 +1,6 @@
-# 1102-ComputerOrganization-FinalProject
+# ComputerOrganization-FinalProject
 
-## Questions
+## 資工二B 112502559 吳梓熙
 
 ### Q1. GEM5 + NVMAIN BUILD-UP (40%)
 Follow PPT
