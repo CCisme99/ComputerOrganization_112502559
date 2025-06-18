@@ -6,7 +6,7 @@
 Follow PPT
 1. compile
 ```
-scons build/X86/gem5.opt -j$(nproc)
+scons build/X86/gem5.opt -j 8
 ```
 2. run
 ```
@@ -81,24 +81,28 @@ scons EXTRAS=../NVmain build/X86/gem5.opt
 -c ../benchmark/quicksort --cpu-type=TimingSimpleCPU \
 --caches --l1i_size=32kB --l1d_size=32kB --l2cache --l2_size=128kB \
 --l3cache --l3_size=1MB --l3_assoc=2 --mem-type=NVMainMemory \
---nvmain-config=../NVmain/Config/PCM_ISSCC_2012_4GB.config > cmdlog_FB.txt
+--nvmain-config=../NVmain/Config/PCM_ISSCC_2012_4GB.config > cmdlog_LRU.txt
 ```
 ```
 ./build/X86/gem5.opt configs/example/se.py \
 -c ../benchmark/quicksort --cpu-type=TimingSimpleCPU \
 --caches --l1i_size=32kB --l1d_size=32kB --l2cache --l2_size=128kB \
 --l3cache --l3_size=1MB --l3_assoc=2 --mem-type=NVMainMemory \
---nvmain-config=../NVmain/Config/PCM_ISSCC_2012_4GB.config > cmdlog_LRU.txt
+--nvmain-config=../NVmain/Config/PCM_ISSCC_2012_4GB.config > cmdlog_FB.txt
 ```
 
 ### Q5. Test the performance of write back and write through policy based on 4-way associative cache with isscc_pcm(15%) 
-1. modifiy
+1. compile multiply.c
+```
+gcc --static multiply.c -o multiply
+```
+2. modifiy
      - `GEM5/src/mem/cache/base.cc`
-2. recompile
+3. recompile
 ```
 scons EXTRAS=../NVmain build/X86/gem5.opt
 ```
-3. run
+4. run
 ```
 ./build/X86/gem5.opt configs/example/se.py \
 -c ../benchmark/multiply --cpu-type=TimingSimpleCPU \
