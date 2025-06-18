@@ -4,6 +4,17 @@
 
 ### Q1. GEM5 + NVMAIN BUILD-UP (40%)
 Follow PPT
+```
+scons build/X86/gem5.opt -j$(nproc)
+```
+```
+./build/X86/gem5.opt configs/example/se.py \
+  -c tests/test-progs/hello/bin/x86/linux/hello \
+  --cpu-type=TimingSimpleCPU \
+  --caches --l2cache \
+  --mem-type=NVMainMemory \
+  --nvmain-config=../NVmain/Config/PCM_ISSCC_2012_4GB.config
+```
 
 ### Q2. Enable L3 last level cache in GEM5 + NVMAIN (15%)
 1. modify
