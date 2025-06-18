@@ -3,10 +3,12 @@
 ## 資工二B 112502559 吳梓熙
 
 ### Q1. GEM5 + NVMAIN BUILD-UP (40%)
+1. compile
 Follow PPT
 ```
 scons build/X86/gem5.opt -j$(nproc)
 ```
+2. run
 ```
 ./build/X86/gem5.opt configs/example/se.py \
   -c tests/test-progs/hello/bin/x86/linux/hello \
